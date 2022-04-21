@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createUser } from '../services/userAPI';
+import Loading from '../components/Loading';
 
 class Login extends Component {
   constructor() {
@@ -8,7 +9,17 @@ class Login extends Component {
       name: '',
       password: '',
       buttonDisabled: true,
+      loading: false,
     };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        loading: true,
+      });
+    // eslint-disable-next-line no-magic-numbers
+    }, 2000);
   }
 
   onChange=({ target }) => {
@@ -26,40 +37,44 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password, name, buttonDisabled } = this.state;
+    const { email, password, name, buttonDisabled, loading } = this.state;
 
     return (
       <div data-testid="page-login">
         <h1>TrybeTunes</h1>
-        <form>
-          <input
-            name="name"
-            onChange={ this.onChange }
-            placeholder="Name"
-            data-testid="login-name-input"
-            type="text"
-            value={ name }
-          />
+        { loading ? (
+          <Loading loading={ loading } />
+        ) : (
+          <form>
+            <input
+              name="name"
+              onChange={ this.onChange }
+              placeholder="Name"
+              data-testid="login-name-input"
+              type="text"
+              value={ name }
+            />
 
-          <input name="email" placeholder="Email" type="email" value={ email } />
+            <input name="email" placeholder="Email" type="email" value={ email } />
 
-          <input
-            name="password"
-            onChange={ this.onChange }
-            placeholder="Password"
-            type="password"
-            value={ password }
-          />
+            <input
+              name="password"
+              onChange={ this.onChange }
+              placeholder="Password"
+              type="password"
+              value={ password }
+            />
 
-          <button
-            type="button"
-            data-testid="login-submit-button"
-            disabled={ buttonDisabled }
-            onClick={ this.onClick }
-          >
-            Entrar
-          </button>
-        </form>
+            <button
+              type="button"
+              data-testid="login-submit-button"
+              disabled={ buttonDisabled }
+              onClick={ this.onClick }
+            >
+              Entrar
+            </button>
+          </form>
+        )}
       </div>
     );
   }

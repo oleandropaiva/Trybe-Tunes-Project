@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 class Loading extends Component {
-  render() { 
-    return(
-      <p>Carregando...</p>
-    );
-
-    export default Loading;
-    
-  
+  render() {
+    const { loading } = this.props;
+    if (loading) {
+      <span>Carregando...</span>;
+    }
+    return '';
   }
 }
+
+export default Loading;

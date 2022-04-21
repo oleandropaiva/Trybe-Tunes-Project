@@ -12,7 +12,7 @@ class Content extends Component {
   render() {
     return (
       <main>
-        <Route path="/" component={ Login } />
+        <Route path="/" component={ Login } exact />
         <Route path="/Search" component={ Search } />
         <Route path="/album/:id" component={ Album } />
         <Route path="/favorites" component={ Favorites } />
