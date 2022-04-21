@@ -19,8 +19,7 @@ class Login extends Component {
       this.setState({
         loading: true,
       });
-    // eslint-disable-next-line no-magic-numbers
-    }, 2000);
+    });
   }
 
   onChange=({ target }) => {
