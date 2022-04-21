@@ -46,7 +46,7 @@
     "eslint-config-trybe-frontend": "^1.2.3",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-sonarjs": "^0.9.1",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "4.1.0"
