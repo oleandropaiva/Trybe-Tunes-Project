@@ -16,8 +16,8 @@ class Content extends Component {
         <Route path="/Search" component={ Search } />
         <Route path="/album/:id" component={ Album } />
         <Route path="/favorites" component={ Favorites } />
-        <Route path="/profile" component={ Profile } />
         <Route path="/profile/edit" component={ ProfileEdit } />
+        <Route path="/profile" component={ Profile } />
         <Route path="*" component={ NotFound } />
       </main>
     );
