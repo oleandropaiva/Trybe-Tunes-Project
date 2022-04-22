@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-/* import PropTypes from 'prop-types'; */
+import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 
@@ -8,41 +8,54 @@ class Login extends Component {
     super();
     this.state = {
       name: '',
-      password: '',
+      /* password: '', */
       buttonDisabled: true,
       loading: false,
+      goSearch: null,
     };
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        loading: true,
-      });
+  /* componentDidMount() {
+    this.setState({
+      loading: true,
     });
-  }
+  } */
 
-  onChange=({ target }) => {
+  onChange = ({ target }) => {
     const { name, value } = target;
     const min = 3;
     if (value.length >= min) {
       this.setState({ buttonDisabled: false });
     }
     this.setState({ [name]: value });
-  }
+  };
 
-  onClick=() => {
+  onClick = async () => {
+    this.setState({ loading: true });
     const { name } = this.state;
-    createUser({ name });
-  }
+    await createUser({ name });
+    this.setState({
+      buttonDisabled: true,
+      loading: false,
+      goSearch: '/search',
+    });
+  };
 
   render() {
-    const { email, password, name, buttonDisabled, loading } = this.state;
+    const {
+      /* email, */ /* password, */ name,
+      buttonDisabled,
+      loading,
+      goSearch,
+    } = this.state;
+
+    if (goSearch) {
+      return <Redirect to={ goSearch } />;
+    }
 
     return (
       <div data-testid="page-login">
         <h1>TrybeTunes</h1>
-        { loading ? <Loading loading={ loading } /> : '' }
         <form>
           <input
             name="name"
@@ -53,7 +66,7 @@ class Login extends Component {
             value={ name }
           />
 
-          <input
+          {/* <input
             name="email"
             placeholder="Email"
             type="email"
@@ -66,7 +79,7 @@ class Login extends Component {
             placeholder="Password"
             type="password"
             value={ password }
-          />
+          /> */}
 
           <button
             type="button"
@@ -76,14 +89,11 @@ class Login extends Component {
           >
             Entrar
           </button>
+          {loading && <Loading />}
         </form>
       </div>
     );
   }
 }
-
-/* Login.propTyps = {
-  loading: PropTypes.bool.isRequired,
-}; */
 
 export default Login;
