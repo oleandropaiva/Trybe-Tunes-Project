@@ -15,10 +15,14 @@ class MusicCard extends Component {
      favoritaCheckbox= async () => {
        this.setState({
          clicado: true,
-         loading: false,
+         loading: true,
        });
        const { music } = this.props;
        await addSong(music);
+
+       this.setState({
+         loading: false,
+       });
      }
 
      render() {
@@ -48,7 +52,7 @@ class MusicCard extends Component {
                onChange={ this.favoritaCheckbox }
              />
            </label>
-           {loading ? <Loading /> : 'false'}
+           {loading && <Loading /> }
          </div>
        );
      }
