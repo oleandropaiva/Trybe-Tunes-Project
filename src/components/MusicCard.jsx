@@ -48,7 +48,7 @@ class MusicCard extends Component {
                onChange={ this.favoritaCheckbox }
              />
            </label>
-           {loading && <Loading />}
+           {loading ? <Loading /> : 'false'}
          </div>
        );
      }
