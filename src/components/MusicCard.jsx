@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import addSong from '../services/favoriteSongsAPI';
+import { addSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       clicado: false,
       loading: false,
     };
   }
 
-     favoriteCheckbox= async () => {
+     favoritaCheckbox= async () => {
        this.setState({
          clicado: true,
-         loading: true,
+         loading: false,
        });
        const { music } = this.props;
        await addSong(music);

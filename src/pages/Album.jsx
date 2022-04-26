@@ -7,6 +7,7 @@ import MusicCard from '../components/MusicCard';
 class Album extends Component {
   constructor() {
     super();
+
     this.state = {
       musics: [],
     };
@@ -16,8 +17,9 @@ class Album extends Component {
     this.goToMusics();
   }
 
-  goToMusics = async () => {
+  async goToMusics() {
     const { match: { params: { id } } } = this.props;
+
     const musicAlbum = await getMusics(id);
     this.setState({
       musics: [...musicAlbum],
