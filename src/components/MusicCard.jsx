@@ -23,13 +23,13 @@ class MusicCard extends Component {
 
        this.setState({
          loading: false,
-         favoriteSong: songFavorited
+         favoriteSong: songFavorited,
        });
      }
 
      render() {
        const { music } = this.props;
-       const { clicado, loading } = this.state;
+       const { clicado, loading, favoriteSong } = this.state;
        return (
          <div>
            <p>{ music.trackName }</p>
@@ -54,7 +54,7 @@ class MusicCard extends Component {
                onChange={ this.favoritaCheckbox }
              />
            </label>
-           {loading && <Loading /> }
+           {loading ? <Loading /> : favoriteSong }
          </div>
        );
      }
