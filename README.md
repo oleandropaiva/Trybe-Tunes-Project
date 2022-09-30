@@ -1,16 +1,17 @@
-# 🚧 README em construção 🚧
+## Neste projeto, você será capaz de:
 
-<!-- Olá, Tryber!
+- Fazer requisições e consumir dados vindos de uma API;
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+- Utilizar os ciclos de vida de um componente React;
 
-É essencial que você preencha esse documento por conta própria, ok?
+- Utilizar a função setState de forma a garantir que um determinado código só é executado após o estado ser atualizado
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+- Utilizar o componente BrowserRouter corretamente;
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
+- Criar rotas, mapeando o caminho da URL com o componente correspondente, via Route;
 
--->
+- Utilizar o Switch do React Router
+
+- Usar o componente Redirect pra redirecionar para uma rota específica;
+
+- Criar links de navegação na aplicação com o componente Link;
