@@ -1,4 +1,4 @@
-## Neste projeto, você será capaz de:
+## Habilidades:
 
 - Fazer requisições e consumir dados vindos de uma API;
 
